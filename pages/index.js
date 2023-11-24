@@ -24,7 +24,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ route: routeInput }),
+        body: JSON.stringify({ routeStart: routeStartInput, routeEnd: routeEndInput}),
       });
 
       const data = await response.json();
@@ -33,7 +33,8 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setRouteInput("");
+      setRouteStartInput("");
+      setRouteEndInput("");
     } catch(error) {
       console.error(error);
       alert(error.message);
